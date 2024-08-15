@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCodeCS
+﻿namespace LeetCodeCS
 {
-    public class _1480_RunningSumof1DArray
+    public class _1480_RunningSumOf1DArray
     {
         public class Solution
         {
