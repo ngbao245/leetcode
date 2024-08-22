@@ -3,10 +3,7 @@ git add .
 git commit -m "Daily Challenge"
 git push
 
-if %ERRORLEVEL% NEQ 0 (
-    echo An error occurred.
-    exit /b %ERRORLEVEL%
-)
+color 0A
+echo Daily Challenge have been pushed!
 
-echo ^[[32mUpdate successful!^[[0m
-pause
+timeout /t 1 /nobreak >nul
