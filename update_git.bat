@@ -5,4 +5,4 @@ git push
 
 echo [102;30m"Daily Challenge have been pushed!"[0m
 
-timeout /t 2 /nobreak >nul
+timeout /t 1 /nobreak >nul
