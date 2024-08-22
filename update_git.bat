@@ -9,3 +9,4 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo ^[[32mUpdate successful!^[[0m
+pause
