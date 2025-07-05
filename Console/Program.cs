@@ -1,28 +1,26 @@
-﻿Console.WriteLine(FindLucky(new int[] { 1, 2, 2, 3 }));
+﻿Console.WriteLine(IsPalindrome(123454321));
+Console.WriteLine("===============");
+Console.WriteLine(IsPalindrome(1000021));
+Console.WriteLine("===============");
+Console.WriteLine(IsPalindrome(123));
 
-static int FindLucky(int[] arr)
+static bool IsPalindrome(int x)
 {
-    Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
-
-    for (int i = 0; i < arr.Length; i++)
+    for (int i = 0; i < x.ToString().Length; i++)
     {
-        if (keyValuePairs.ContainsKey(arr[i]))
+        for (int j = x.ToString().Length - (i + 1); j >= 0; j--)
         {
-            keyValuePairs[arr[i]]++;
-        }
-        else
-        {
-            keyValuePairs.Add(arr[i], 1);
+            if (x.ToString()[i] == x.ToString()[j])
+            {
+                break;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
-
-    int largestLucky = -1;
-    foreach (var kvp in keyValuePairs)
-    {
-        if (kvp.Key == kvp.Value && kvp.Key > largestLucky)
-        {
-            largestLucky = kvp.Key;
-        }
-    }
-    return largestLucky;
+    return true;
 }
+
+
