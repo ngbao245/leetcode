@@ -1,18 +1,28 @@
-﻿
+﻿Console.WriteLine(FindLucky(new int[] { 1, 2, 2, 3 }));
 
-Console.WriteLine(PossibleStringCount("ere"));
-
-static int PossibleStringCount(string word)
+static int FindLucky(int[] arr)
 {
-    int result = 1;
+    Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
 
-    for (int i = 1; i < word.Length; i++)
+    for (int i = 0; i < arr.Length; i++)
     {
-        if (word[i] == word[i - 1])
+        if (keyValuePairs.ContainsKey(arr[i]))
         {
-            result++;
+            keyValuePairs[arr[i]]++;
+        }
+        else
+        {
+            keyValuePairs.Add(arr[i], 1);
         }
     }
-    return result;
-}
 
+    int largestLucky = -1;
+    foreach (var kvp in keyValuePairs)
+    {
+        if (kvp.Key == kvp.Value && kvp.Key > largestLucky)
+        {
+            largestLucky = kvp.Key;
+        }
+    }
+    return largestLucky;
+}
