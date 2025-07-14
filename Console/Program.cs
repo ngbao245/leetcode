@@ -1,26 +1,48 @@
-﻿Console.WriteLine(IsPalindrome(123454321));
-Console.WriteLine("===============");
-Console.WriteLine(IsPalindrome(1000021));
-Console.WriteLine("===============");
-Console.WriteLine(IsPalindrome(123));
+﻿using System;
+using LeetCodeCS.MyToy;
 
-static bool IsPalindrome(int x)
+//ListNode head = new ListNode(1,
+//                    new ListNode(2,
+//                        new ListNode(3,
+//                            new ListNode(4,
+//                                new ListNode(3,
+//                                    new ListNode(2,
+//                                        new ListNode(1)
+//                                    )
+//                                )
+//                            )
+//                        )
+//                    )
+//                );
+
+int[] bits = { 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
+ListNode head = BuildList.Build(bits);
+
+
+System.Console.WriteLine(GetDecimalValue(head));
+
+static int GetDecimalValue(ListNode head)
 {
-    for (int i = 0; i < x.ToString().Length; i++)
+    int count = 0;
+    int result = 0;
+    string binaryString = string.Empty;
+
+    while (head != null)
     {
-        for (int j = x.ToString().Length - (i + 1); j >= 0; j--)
-        {
-            if (x.ToString()[i] == x.ToString()[j])
-            {
-                break;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        binaryString += head.val.ToString();
+        count++;
+        head = head.next;
     }
-    return true;
+
+    int temp = count - 1;
+
+    for (int i = 0; i < count; i++)
+    {
+        if (binaryString[i] == '1')
+        {
+            result += (int)Math.Pow(2, temp);
+        }
+        temp--;
+    }
+    return result;
 }
-
-
